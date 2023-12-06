@@ -66,3 +66,14 @@ IF NOT EXISTS(SELECT 1 FROM sys.types WHERE name = 'Row' AND schema_id = SCHEMA_
 BEGIN
 CREATE TYPE [Udt].[Row] FROM INT NOT NULL
 END
+
+--Building
+IF NOT EXISTS(SELECT 1 FROM sys.types WHERE name = 'Building' AND schema_id = SCHEMA_ID('Udt'))
+BEGIN
+CREATE TYPE [Udt].[Building] FROM nchar(3) NOT NULL
+END
+
+IF NOT EXISTS(SELECT 1 FROM sys.types WHERE name = 'Number' AND schema_id = SCHEMA_ID('Udt'))
+BEGIN
+CREATE TYPE [Udt].[Number] from INT NOT NULL
+END

@@ -27,3 +27,8 @@ IF NOT EXISTS (SELECT 1 FROM sys.schemas WHERE name = 'Project3')
 BEGIN
     EXEC('CREATE SCHEMA [Project3]')
 END
+
+IF NOT EXISTS (SELECT 1 FROM sys.schemas WHERE name = 'Location')
+BEGIN
+    EXEC('CREATE SCHEMA [Location]')
+END
