@@ -24,7 +24,7 @@ BEGIN
 	REFERENCES [Dept].[Instructor](InstructorId);
 
 	ALTER TABLE [Dept].[Instructor_Department_Bridge] 
-	ADD CONSTRAINT FK_DepartmentId Foreign Key(DepartmentIdId)
+	ADD CONSTRAINT FK_DepartmentId Foreign Key(DepartmentId)
 	REFERENCES [Dept].[Department](DepartmentId);
 	
 	declare @rowCount as INT;

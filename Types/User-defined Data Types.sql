@@ -40,14 +40,21 @@ END
 --LastName
 IF NOT EXISTS(SELECT 1 FROM sys.types WHERE name = 'LastName' AND schema_id = SCHEMA_ID('Udt'))
 BEGIN
-CREATE TYPE [Udt].[LastName] FROM nvarchar(35) NOT NULL
+CREATE TYPE [Udt].[LastName] FROM nvarchar(50) NOT NULL
 END
 
 --FirstName
 IF NOT EXISTS(SELECT 1 FROM sys.types WHERE name = 'FirstName' AND schema_id = SCHEMA_ID('Udt'))
 BEGIN
-CREATE TYPE [Udt].[FirstName] FROM nvarchar(20) NOT NULL
+CREATE TYPE [Udt].[FirstName] FROM nvarchar(50) NOT NULL
 END
+
+--FullName
+IF NOT EXISTS(SELECT 1 FROM sys.types WHERE name = 'FullName' AND schema_id = SCHEMA_ID('Udt'))
+BEGIN
+CREATE TYPE [Udt].[FullName] FROM nvarchar(100) NOT NULL
+END
+
 
 --GroupName
 IF NOT EXISTS(SELECT 1 FROM sys.types WHERE name = 'GroupName' AND schema_id = SCHEMA_ID('Udt'))
@@ -73,7 +80,14 @@ BEGIN
 CREATE TYPE [Udt].[Building] FROM nchar(3) NOT NULL
 END
 
+--Number
 IF NOT EXISTS(SELECT 1 FROM sys.types WHERE name = 'Number' AND schema_id = SCHEMA_ID('Udt'))
 BEGIN
 CREATE TYPE [Udt].[Number] from INT NOT NULL
+END
+
+--DeptName
+IF NOT EXISTS(SELECT 1 FROM sys.types WHERE name = 'DeptName' AND schema_id = SCHEMA_ID('Udt'))
+BEGIN
+CREATE TYPE [Udt].[DeptName] FROM nchar(4) NOT NULL
 END

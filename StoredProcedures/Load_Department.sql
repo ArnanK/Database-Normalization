@@ -6,11 +6,11 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 -- =============================================
--- Author:		Arnan Khan
+-- Author:		Samin
 -- Create date: 12/04/2023
--- Description:	Loads Data into Dept.Instructor
+-- Description:	Loads Data into Dept.Department
 -- =============================================
-CREATE PROCEDURE [Project3].[Load_DeptInstructor]
+CREATE PROCEDURE [Project3].[Load_DeptDepartment]
 @GroupMemberUserAuthorizationKey [Udt].[SurrogateKeyInt]
 AS
 BEGIN
@@ -25,19 +25,13 @@ BEGIN
     DECLARE @DateOfLastUpdate DATETIME2;
     SET @DateOfLastUpdate = SYSDATETIME();
 
-    INSERT INTO [Dept].[Instructor](InstructorFirstName,InstructorLastName, InstructorFullName)
-    SELECT DISTINCT 
-        SUBSTRING(Instructor, 1, CHARINDEX(',', Instructor) - 1),
-        SUBSTRING(Instructor, CHARINDEX(',', Instructor) + 2, LEN(Instructor)),
-		Instructor
-    FROM Uploadfile.CurrentSemesterCourseOfferings
-	WHERE SUBSTRING(Instructor, 1, CHARINDEX(',', Instructor) - 1) != ' ' and SUBSTRING(Instructor, CHARINDEX(',', Instructor) + 2, LEN(Instructor)) != ' ';
-	
+    INSERT INTO [Dept].[Department](DepartmentName)
+    SELECT DISTINCT substring([Course (hr, crd)], 1, 4)
+    FROM Uploadfile.CurrentSemesterCourseOfferings;
 
 
-	
 	declare @rowCount as INT;
-	set @rowCount = (SELECT COUNT(*) FROM Dept.Instructor);
+	set @rowCount = (SELECT COUNT(*) FROM Dept.Department);
 	
 	DECLARE @endT DATETIME2;
     set @endT = SYSDATETIME();
@@ -45,7 +39,7 @@ BEGIN
 	INSERT INTO Process.WorkflowSteps (UserAuthorizationKey, WorkFlowStepDescription, StartingDateTime, EndingDateTime, WorkFlowStepTableRowCount)
 	VALUES(
 		@GroupMemberUserAuthorizationKey,
-		N'Loads all of the Distinct Instructors with the concatnation of their first name and last name.',
+		N'Loads all the distinct departments into the Dept.Department Table.',
 		@startT,
 		 @endT,
 		@rowCount

@@ -14,8 +14,7 @@ CREATE TABLE [Dept].[Instructor](
     InstructorId [Udt].[SurrogateKeyInt] IDENTITY(1,1) PRIMARY KEY NOT NULL,
     InstructorFirstName [Udt].[FirstName] NOT NULL,
     InstructorLastName [Udt].[LastName] NOT NULL, 
-    InstructorFullName AS (InstructorFirstName + ' ' + InstructorLastName) PERSISTED NOT NULL,
-    CONSTRAINT CHK_InstructorName_Length CHECK (LEN(InstructorFullName) <= 55)
+    InstructorFullName [Udt].[FullName] NOT NULL,
 )
 
 
