@@ -91,3 +91,40 @@ IF NOT EXISTS(SELECT 1 FROM sys.types WHERE name = 'DeptName' AND schema_id = SC
 BEGIN
 CREATE TYPE [Udt].[DeptName] FROM nchar(4) NOT NULL
 END
+
+
+--CourseName
+IF NOT EXISTS(SELECT 1 FROM sys.types WHERE name = 'CourseName' AND schema_id = SCHEMA_ID('Udt'))
+BEGIN
+CREATE TYPE [Udt].[CourseName] FROM nvarchar(20) NOT NULL
+END
+
+--CourseDescription
+IF NOT EXISTS(SELECT 1 FROM sys.types WHERE name = 'CourseDescription' AND schema_id = SCHEMA_ID('Udt'))
+BEGIN
+CREATE TYPE [Udt].[CourseDescription] FROM nvarchar(50) NOT NULL
+END
+
+--CourseDay
+IF NOT EXISTS(SELECT 1 FROM sys.types WHERE name = 'CourseDay' AND schema_id = SCHEMA_ID('Udt'))
+BEGIN
+CREATE TYPE [Udt].[CourseDay] FROM nvarchar(50) NOT NULL
+END
+
+--CourseTime
+IF NOT EXISTS(SELECT 1 FROM sys.types WHERE name = 'CourseTime' AND schema_id = SCHEMA_ID('Udt'))
+BEGIN
+CREATE TYPE [Udt].[CourseTime] FROM nvarchar(50) NOT NULL
+END
+
+--Enrolled
+IF NOT EXISTS(SELECT 1 FROM sys.types WHERE name = 'Enrolled' AND schema_id = SCHEMA_ID('Udt'))
+BEGIN
+CREATE TYPE [Udt].[Enrolled] FROM INT NOT NULL
+END
+
+--Limit
+IF NOT EXISTS(SELECT 1 FROM sys.types WHERE name = 'Limit' AND schema_id = SCHEMA_ID('Udt'))
+BEGIN
+CREATE TYPE [Udt].[Limit] FROM INT NOT NULL
+END
