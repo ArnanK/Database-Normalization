@@ -9,7 +9,7 @@ GO
 -- Create date: 
 -- Description:	
 -- =============================================
-CREATE PROCEDURE [Project3].[LoadStarSchemaData]
+CREATE PROCEDURE [Project3].[LoadQueensCourseSchedule]
     -- Add the parameters for the stored procedure here
 AS
 BEGIN
@@ -23,7 +23,7 @@ BEGIN
 	--	Check row count before truncation
 	EXEC	[Project3].[ShowTableStatusRowCount]
 		@GroupMemberUserAuthorizationKey = 2,  -- Change -1 to the appropriate UserAuthorizationKey
-		@TableStatus = N'''Pre-truncate of tables'''
+		@TableStatus = N'''Pre-truncate of tables''';
     --
     --	Always truncate the Star Schema Data
     --
@@ -46,7 +46,7 @@ BEGIN
 	--	Check row count before truncation
 	EXEC	[Project3].[ShowTableStatusRowCount]
 		@GroupMemberUserAuthorizationKey = 2,  -- Change -1 to the appropriate UserAuthorizationKey
-        @TableStatus = N'''Row Count after loading the star schema'''
+        @TableStatus = N'''Row Count after loading the star schema''';
 	--
    EXEC [Project3].[AddForeignKeysToSchemaData] @GroupMemberUserAuthorizationKey = 2;  -- Change -1 to the appropriate UserAuthorizationKey
     --

@@ -45,7 +45,7 @@ VALUES(
 	@startT,
 		@endT,
 	@rowCount
-)
+);
 
 
-END
+END;

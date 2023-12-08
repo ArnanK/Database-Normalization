@@ -48,7 +48,7 @@ INNER JOIN Dept.Department as D on D.DepartmentName = substring(CSCO.[Course (hr
 INNER JOIN Dept.Instructor_Department_Bridge as IDB on IDB.InstructorId=I.InstructorId AND IDB.DepartmentId=D.DepartmentId
 INNER JOIN Location.BuildingLocation as BL on BL.RoomBuilding = SUBSTRING(CSCO.[Location], 1, CHARINDEX(' ', CSCO.[Location]))
 INNER JOIN Location.RoomLocation as RL on RL.RoomNumber = SUBSTRING(CSCO.Location, CHARINDEX(' ', CSCO.Location), LEN(CSCO.Location)) 
-INNER JOIN Dept.ModeOfInstruction as MOI on MOI.[Mode Of Instruction] = CSCO.[Mode of Instruction]
+INNER JOIN Dept.ModeOfInstruction as MOI on MOI.[Mode Of Instruction] = CSCO.[Mode of Instruction];
 
 declare @rowCount as INT;
 set @rowCount = (SELECT COUNT(*) FROM Dept.Class);
@@ -63,7 +63,7 @@ VALUES(
 	@startT,
 		@endT,
 	@rowCount
-)
+);
 
 
 END

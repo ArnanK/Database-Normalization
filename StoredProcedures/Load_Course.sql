@@ -50,7 +50,7 @@ VALUES(
 	@startT,
 		@endT,
 	@rowCount
-)
+);
 
 
 END

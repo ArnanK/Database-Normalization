@@ -20,16 +20,16 @@ BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
 	-- interfering with SELECT statements.
 	SET NOCOUNT ON;
-	truncate table Dept.Instructor_Department_Bridge
-    truncate table Dept.Instructor
-    truncate table Dept.Department
-	truncate table Dept.ModeOfInstruction
+	truncate table Dept.Instructor_Department_Bridge;
+    truncate table Dept.Instructor;
+    truncate table Dept.Department;
+	truncate table Dept.ModeOfInstruction;
 
-	truncate table Dept.Course
-    truncate table Location.RoomLocation
-	truncate table Location.BuildingLocation
+	truncate table Dept.Course;
+    truncate table Location.RoomLocation;
+	truncate table Location.BuildingLocation;
 
-	truncate table Dept.Class
+	truncate table Dept.Class;
 	declare @rowCount as INT;
 	set @rowCount = 0;
 	set @startT = SYSDATETIME();
@@ -42,6 +42,6 @@ BEGIN
 		@startT,
 		 @endT,
 		@rowCount
-	)
+	);
 
 END;

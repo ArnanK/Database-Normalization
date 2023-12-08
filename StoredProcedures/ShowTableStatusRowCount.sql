@@ -15,15 +15,12 @@ BEGIN
 	SET NOCOUNT ON;
 
 
-	select TableStatus = @TableStatus,TableName ='Course', COUNT(*) as [RowCount] FROM [Dept].Course
-    select TableStatus = @TableStatus,TableName ='Department', COUNT(*)as [RowCount] FROM [Dept].Department
-    select TableStatus = @TableStatus,TableName ='Instructor', COUNT(*)as [RowCount] FROM [Dept].Instructor
-    select TableStatus = @TableStatus,TableName ='Instructor_Department_Bridge', COUNT(*)as [RowCount] FROM [Dept].Instructor_Department_Bridge
-    select TableStatus = @TableStatus,TableName = 'Class', COUNT(*)as [RowCount] FROM [Dept].Class
-    select TableStatus = @TableStatus,TableName ='RoomLocation', COUNT(*)as [RowCount] FROM [Location].RoomLocation
-    select TableStatus = @TableStatus,TableName = 'BuildingLocation', COUNT(*)as [RowCount] FROM [Location].BuildingLocation
-    select TableStatus = @TableStatus,TableName = 'ModeOfInstruction', COUNT(*)as [RowCount] FROM [Dept].ModeOfInstruction
-
-
-		
-END
+	select TableStatus = @TableStatus,TableName ='Course', COUNT(*) as [RowCount] FROM [Dept].Course;
+    select TableStatus = @TableStatus,TableName ='Department', COUNT(*)as [RowCount] FROM [Dept].Department;
+    select TableStatus = @TableStatus,TableName ='Instructor', COUNT(*)as [RowCount] FROM [Dept].Instructor;
+    select TableStatus = @TableStatus,TableName ='Instructor_Department_Bridge', COUNT(*)as [RowCount] FROM [Dept].Instructor_Department_Bridge;
+    select TableStatus = @TableStatus,TableName = 'Class', COUNT(*)as [RowCount] FROM [Dept].Class;
+    select TableStatus = @TableStatus,TableName ='RoomLocation', COUNT(*)as [RowCount] FROM [Location].RoomLocation;
+    select TableStatus = @TableStatus,TableName = 'BuildingLocation', COUNT(*)as [RowCount] FROM [Location].BuildingLocation;
+    select TableStatus = @TableStatus,TableName = 'ModeOfInstruction', COUNT(*)as [RowCount] FROM [Dept].ModeOfInstruction;
+END;

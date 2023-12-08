@@ -30,7 +30,7 @@ BEGIN
 		DISTINCT 
 		SUBSTRING(Location, CHARINDEX(' ', Location), LEN(Location)) 
 	FROM Uploadfile.CurrentSemesterCourseOfferings
-	WHERE [Location] != ' '
+	WHERE [Location] != ' ';
 
 	declare @rowCount as INT;
 	set @rowCount = (SELECT COUNT(*) FROM Location.RoomLocation);
@@ -45,7 +45,7 @@ BEGIN
 		@startT,
 		 @endT,
 		@rowCount
-	)
+	);
 
 
 END

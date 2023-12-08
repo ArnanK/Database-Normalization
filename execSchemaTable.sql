@@ -1,2 +1,2 @@
-exec [Project3].[LoadStarSchemaData];
+exec [Project3].[LoadQueensCourseSchedule];
 

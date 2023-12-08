@@ -30,7 +30,7 @@ BEGIN
 		I.InstructorId, D.DepartmentId
 	FROM Uploadfile.CurrentSemesterCourseOfferings as O
 	INNER JOIN Dept.Department as D on D.DepartmentName = substring(O.[Course (hr, crd)], 1, 4)
-	INNER JOIN Dept.Instructor as I on I.InstructorFullName = O.Instructor
+	INNER JOIN Dept.Instructor as I on I.InstructorFullName = O.Instructor;
 
 	declare @rowCount as INT;
 	set @rowCount = (SELECT COUNT(*) FROM Dept.Department);
