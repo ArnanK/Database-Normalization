@@ -6,13 +6,13 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 -- =============================================
--- Author:		Abdul Mohammed
+-- Author:		Aureljo Pepa
 -- Create date: 12/05/2023
--- Description:	Loads Data into Dept.Course
--- =============================================\
-DROP PROCEDURE IF EXISTS [Project3].[Load_Course];
+-- Description:	Loads Data into Dept.ModeOfInstruction
+-- =============================================
+DROP PROCEDURE IF EXISTS [Project3].[Load_ModeOfInstruction];
 go
-CREATE PROCEDURE [Project3].[Load_Course]
+CREATE PROCEDURE [Project3].[Load_ModeOfInstruction]
 @GroupMemberUserAuthorizationKey [Udt].[SurrogateKeyInt]
 AS
 BEGIN
@@ -27,18 +27,13 @@ BEGIN
     DECLARE @DateOfLastUpdate DATETIME2;
     SET @DateOfLastUpdate = SYSDATETIME();
 
-INSERT INTO Dept.Course(CourseName,CourseDescription)
-SELECT DISTINCT 
-	SUBSTRING([Course (hr, crd)], 1, CHARINDEX(' (', [Course (hr, crd)]) - 1) AS CourseCode,
-	Description
---    SUBSTRING(Instructor, 1, CHARINDEX(',', Instructor) - 1),
---    SUBSTRING(Instructor, CHARINDEX(',', Instructor) + 2, LEN(Instructor)) 
-FROM Uploadfile.CurrentSemesterCourseOfferings;
-	
+Insert Into [Dept].[ModeOfInstruction] ([Mode Of Instruction])
+Select Distinct [Mode Of Instruction] 
+From Uploadfile.CurrentSemesterCourseOfferings;
 
-	
+
 declare @rowCount as INT;
-set @rowCount = (SELECT COUNT(*) FROM Dept.Course);
+set @rowCount = (SELECT COUNT(*) FROM [Dept].[ModeOfInstruction]);
 	
 DECLARE @endT DATETIME2;
 set @endT = SYSDATETIME();
@@ -46,7 +41,7 @@ set @endT = SYSDATETIME();
 INSERT INTO Process.WorkflowSteps (UserAuthorizationKey, WorkFlowStepDescription, StartingDateTime, EndingDateTime, WorkFlowStepTableRowCount)
 VALUES(
 	@GroupMemberUserAuthorizationKey,
-	N'Loads the course and attributes',
+	N'Loads the Mode of Instruction',
 	@startT,
 		@endT,
 	@rowCount

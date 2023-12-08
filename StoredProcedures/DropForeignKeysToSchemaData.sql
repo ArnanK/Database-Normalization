@@ -21,6 +21,14 @@ BEGIN
     ALTER TABLE [Dept].[Instructor_Department_Bridge] DROP CONSTRAINT IF EXISTS FK_InstructorId
     ALTER TABLE [Dept].[Instructor_Department_Bridge] DROP CONSTRAINT IF EXISTS FK_DepartmentId
 
+	--Remove FK for Dept.Class
+	ALTER TABLE [Dept].[Class] DROP CONSTRAINT IF EXISTS FK_Courses
+	ALTER TABLE [Dept].[Class] DROP CONSTRAINT IF EXISTS FK_BuildingLocation
+	ALTER TABLE [Dept].[Class] DROP CONSTRAINT IF EXISTS FK_RoomLocation
+	ALTER TABLE [Dept].[Class] DROP CONSTRAINT IF EXISTS FK_DepartmentInstructorBridge
+	ALTER TABLE [Dept].[Class] DROP CONSTRAINT IF EXISTS FK_Mode
+
+
 	declare @rowCount as INT;
 	set @rowCount = 0;
 	set @startT = SYSDATETIME();

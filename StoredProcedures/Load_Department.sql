@@ -10,7 +10,7 @@ GO
 -- Create date: 12/04/2023
 -- Description:	Loads Data into Dept.Department
 -- =============================================
-CREATE PROCEDURE [Project3].[Load_DeptDepartment]
+CREATE PROCEDURE [Project3].[Load_Department]
 @GroupMemberUserAuthorizationKey [Udt].[SurrogateKeyInt]
 AS
 BEGIN

@@ -10,7 +10,7 @@ GO
 -- Description:	@GroupMemberUserAuthorizationKey:
 -- authorization key for stored procedure
 -- =============================================
-CREATE PROCEDURE [Project2].[TruncateStarSchemaData]
+CREATE PROCEDURE [Project3].[TruncateSchemaData]
 	@GroupMemberUserAuthorizationKey [Udt].[SurrogateKeyInt]
 
 AS
@@ -23,9 +23,13 @@ BEGIN
 	truncate table Dept.Instructor_Department_Bridge
     truncate table Dept.Instructor
     truncate table Dept.Department
+	truncate table Dept.ModeOfInstruction
 
+	truncate table Dept.Course
     truncate table Location.RoomLocation
+	truncate table Location.BuildingLocation
 
+	truncate table Dept.Class
 	declare @rowCount as INT;
 	set @rowCount = 0;
 	set @startT = SYSDATETIME();
@@ -34,11 +38,10 @@ BEGIN
 	INSERT INTO Process.WorkflowSteps (UserAuthorizationKey, WorkFlowStepDescription, StartingDateTime, EndingDateTime, WorkFlowStepTableRowCount)
 	VALUES(
 		@GroupMemberUserAuthorizationKey,
-		N'Loads all of the Products.',
+		N'Truncates All the products.',
 		@startT,
 		 @endT,
 		@rowCount
 	)
 
-	
 END;

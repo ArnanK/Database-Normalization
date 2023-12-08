@@ -12,8 +12,7 @@ END
 DROP TABLE IF EXISTS Location.RoomLocation
 CREATE TABLE [Location].[RoomLocation](
     RoomLocationId [Udt].[SurrogateKeyInt] IDENTITY(1,1) PRIMARY KEY NOT NULL,
-    RoomBuilding [Udt].[Building] NOT NULL,
-    RoomNumber [Udt].[Number] NOT NULL, 
-    
-    CONSTRAINT CHK_Building_Length CHECK (LEN(RoomBuilding) <= 3)
+    RoomNumber [Udt].[RoomNumber]  NULL,   
+    CONSTRAINT CHK_Room_Length CHECK (LEN(RoomNumber) <= 10)
 )
+

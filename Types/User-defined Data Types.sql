@@ -77,9 +77,13 @@ END
 --Building
 IF NOT EXISTS(SELECT 1 FROM sys.types WHERE name = 'Building' AND schema_id = SCHEMA_ID('Udt'))
 BEGIN
-CREATE TYPE [Udt].[Building] FROM nchar(3) NOT NULL
+CREATE TYPE [Udt].[Building] FROM nchar(5)  NULL
 END
-
+--RoomNumber
+IF NOT EXISTS(SELECT 1 FROM sys.types WHERE name = 'RoomNumber' AND schema_id = SCHEMA_ID('Udt'))
+BEGIN
+CREATE TYPE [Udt].[RoomNumber] from VARCHAR(10)  NULL
+END
 --Number
 IF NOT EXISTS(SELECT 1 FROM sys.types WHERE name = 'Number' AND schema_id = SCHEMA_ID('Udt'))
 BEGIN
@@ -127,4 +131,10 @@ END
 IF NOT EXISTS(SELECT 1 FROM sys.types WHERE name = 'Limit' AND schema_id = SCHEMA_ID('Udt'))
 BEGIN
 CREATE TYPE [Udt].[Limit] FROM INT NOT NULL
+END
+
+--InsMode
+IF NOT EXISTS(SELECT 1 FROM sys.types WHERE name = 'InsMode' and schema_id = SCHEMA_ID('Udt'))
+BEGIN 
+	CREATE TYPE [Udt].[InsMode] FROM varchar(50) NOT NULL
 END

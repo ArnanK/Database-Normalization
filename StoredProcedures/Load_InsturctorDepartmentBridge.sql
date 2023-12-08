@@ -10,7 +10,7 @@ GO
 -- Create date: 12/04/2023
 -- Description:	Loads
 -- =============================================
-CREATE PROCEDURE [Project3].[Load_DeptDepartment]
+CREATE PROCEDURE [Project3].[Load_DeptInstructorDepartmentBridge]
 @GroupMemberUserAuthorizationKey [Udt].[SurrogateKeyInt]
 AS
 BEGIN

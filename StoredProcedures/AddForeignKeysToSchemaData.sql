@@ -27,6 +27,24 @@ BEGIN
 	ADD CONSTRAINT FK_DepartmentId Foreign Key(DepartmentId)
 	REFERENCES [Dept].[Department](DepartmentId);
 	
+	--Foreign Keys for .Class Table
+	ALTER TABLE [Dept].[Class] WITH CHECK ADD CONSTRAINT [FK_Courses] FOREIGN KEY ([CourseId])
+	References [Dept].[Course] ([CourseId]);
+	
+	ALTER TABLE [Dept].[Class] WITH CHECK ADD CONSTRAINT [FK_BuildingLocation] FOREIGN KEY ([BuildingLocationId])
+	References [Location].[BuildingLocation] ([BuildingLocationId]);
+	
+	ALTER TABLE [Dept].[Class] WITH CHECK ADD CONSTRAINT [FK_RoomLocation] FOREIGN KEY ([RoomLocationId])
+	References [Location].[RoomLocation] ([RoomLocationId]);
+	
+	ALTER TABLE [Dept].[Class] WITH CHECK ADD CONSTRAINT [FK_DepartmentInstructorBridge] FOREIGN KEY ([BridgeId])
+	References [Dept].[Instructor_Department_Bridge] ([BridgeId]);
+
+	ALTER TABLE [Dept].[Class] WITH CHECK ADD CONSTRAINT [FK_Mode] FOREIGN KEY ([ModeId])
+	REFERENCES [Dept].ModeOfInstruction([ModeId]);
+
+
+
 	declare @rowCount as INT;
 	set @rowCount = 0;
 	set @startT = SYSDATETIME();

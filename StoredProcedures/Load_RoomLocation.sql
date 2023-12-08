@@ -25,10 +25,9 @@ BEGIN
     DECLARE @DateOfLastUpdate DATETIME2;
     SET @DateOfLastUpdate = SYSDATETIME();
 
-    INSERT INTO Location.RoomLocation(RoomBuilding,RoomNumber)
+    INSERT INTO Location.RoomLocation(RoomNumber)
 	SELECT 
 		DISTINCT 
-		SUBSTRING(Location, 1, CHARINDEX(' ', Location)),
 		SUBSTRING(Location, CHARINDEX(' ', Location), LEN(Location)) 
 	FROM Uploadfile.CurrentSemesterCourseOfferings
 	WHERE [Location] != ' '
