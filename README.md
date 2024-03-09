@@ -37,6 +37,12 @@ To set up the Queens College Course Catalog Database project, follow these steps
 
 Star Schema Main is the file to run to create the database.
 
+## Presentation
+
+https://www.youtube.com/watch?v=CIYVT4ZbvvQ
+
+https://www.youtube.com/watch?v=gyLAXrc8nVI
+
 ## Contributing
 
 Contributions to the Queens College Course Catalog Database project are welcome! If you'd like to contribute, please follow these guidelines:
